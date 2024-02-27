@@ -1,22 +1,16 @@
-def isOddNumberPrime(n):
-  for x in range(3, n, 2):
-    if x*x > n:
-      return True
-    if n % x == 0:
-      return False
-
-p = [x for x in range(3, 100, 2) if isOddNumberPrime(x)]
-p4s = { x**4 for x in p }
+def func(b):
+    count = 0
+    for i in range (1, b, 2):
+      if b % i == 0 and i % 2 == 1:
+        count+=1
+    return count
 
 l = 45000000
 r = 50000000
 res = []
 
-for n in range(l, r+1):
-  x = n
-  while (x & 1) == 0:
-    x >>= 1
-  if x in p4s:
-    res.append(n)
+for i in range (l, r+1):
+  if func(i) == 5:
+    print(i)
 
-print(res)
+
